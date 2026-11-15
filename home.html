@@ -117,15 +117,13 @@
             transition: background 0.2s;
             white-space: nowrap;
             cursor: pointer;
+            user-select: none;
         }
 
         .main-nav a:hover,
-        .main-nav .dropdown-toggle:hover {
+        .main-nav .dropdown-toggle:hover,
+        .dropdown.open > .dropdown-toggle {
             background: #f1f3f5;
-        }
-
-        .main-nav .dropdown-toggle {
-            cursor: default;
         }
 
         .dropdown {
@@ -148,7 +146,8 @@
             padding-left: 8px;
         }
 
-        .dropdown:hover > .dropdown-menu {
+        .dropdown:hover > .dropdown-menu,
+        .dropdown.open > .dropdown-menu {
             display: block !important;
         }
 
@@ -378,6 +377,14 @@
                 padding-left: 0;
             }
 
+            .dropdown:hover > .dropdown-menu {
+                display: none !important;
+            }
+
+            .dropdown.open > .dropdown-menu {
+                display: block !important;
+            }
+
             .hero-content h1 {
                 font-size: 2rem;
             }
@@ -413,14 +420,14 @@
                         <ul>
                             <li><a href="home.html">Home</a></li>
                             <li class="dropdown">
-                                <span class="dropdown-toggle">Service Areas ▾</span>
+                                <span class="dropdown-toggle" role="button" tabindex="0">Service Areas ▾</span>
                                 <ul class="dropdown-menu">
                                     <li><a href="search.html">Search by city</a></li>
                                     <li><a href="maphub2.html">Map</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <span class="dropdown-toggle">Services ▾</span>
+                                <span class="dropdown-toggle" role="button" tabindex="0">Services ▾</span>
                                 <ul class="dropdown-menu">
                                     <li><a href="waterheaters.html">Water Heaters</a></li>
                                     <li><a href="repairs.html">Plumbing Repairs</a></li>
@@ -435,7 +442,7 @@
                 </div>
                 <div class="hero-content">
                     <img src="https://img1.wsimg.com/isteam/ip/2140ebf9-db09-48b4-84f5-961621909312/blob-34df4fa.png" height="150" alt="Federal Hot Water Solutions Logo">
-                    <h1>Emergency Plubing Services.<br><span>From Local Plumbers You Can Trust.</span></h1>
+                    <h1>Expert Plumbing.<br><span>Fair Local Prices.</span></h1>
                     <p>Your neighbors in Danielsville, Bethlehem, and Nazareth trust Federal Hot Water Solutions for same-day service and professional repairs.</p>
                 </div>
 
@@ -483,6 +490,30 @@
             }
         }
 
+        document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const parentDropdown = this.closest('.dropdown');
+                const isAlreadyOpen = parentDropdown.classList.contains('open');
+
+                document.querySelectorAll('.dropdown.open').forEach(d => {
+                    d.classList.remove('open');
+                });
+
+                if (!isAlreadyOpen) {
+                    parentDropdown.classList.add('open');
+                }
+            });
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.dropdown')) {
+                document.querySelectorAll('.dropdown.open').forEach(d => {
+                    d.classList.remove('open');
+                });
+            }
+        });
+
         document.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
@@ -493,18 +524,5 @@
             });
         });
     </script>
-
-    <footer style="background: #1D2B44; color: white; padding: 30px 20px; text-align: center; font-size: 0.9rem;">
-    <p style="margin-bottom: 10px; font-weight: 700;">Areas We Serve:</p>
-    <p style="margin-bottom: 15px;">
-        <a href="northamptoncounty.html" style="color: #48cae4; margin: 0 8px;">Northampton County</a> |
-        <a href="lehighcounty.html" style="color: #48cae4; margin: 0 8px;">Lehigh County</a> |
-        <a href="carboncounty.html" style="color: #48cae4; margin: 0 8px;">Carbon County</a> |
-        <a href="monroecounty.html" style="color: #48cae4; margin: 0 8px;">Monroe County</a> |
-        <a href="buckscounty.html" style="color: #48cae4; margin: 0 8px;">Bucks County</a>
-    </p>
-    <p style="color: #aaa; font-size: 0.8rem;">Federal Hot Water Solutions | PA HIC #210613</p>
-</footer>
-    
 </body>
 </html>
