@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Damage Repairs | Federal Hot Water Solutions</title>
+    <meta name="description" content="Plumbing damage repairs in the Lehigh Valley and surrounding areas. We fix the leak and help repair the damage it caused, including flooring, drywall, and vanity replacement.">
+    <style>
+        :root { --navy: #1D2B44; --accent: #0077B6; --light: #f8f9fa; }
+        * { box-sizing: border-box; }
+        body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background-color: var(--light);
+    background-image: url("damagebg.jpeg");
+    background-size: 110%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--navy);
+    line-height: 1.6;
+    position: relative;
+    transition: background-size 0.1s linear;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.55);
+    z-index: -1;
+}
+        .top-bar { max-width: 800px; margin: 25px auto 0; padding: 0 20px; }
+        .home-btn { display: inline-block; background: var(--navy); color: white; text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 10px 18px; border-radius: 6px; }
+        .home-btn:hover { background: #152033; }
+        .page-wrapper { max-width: 800px; margin: 20px auto 40px; padding: 0 20px; }
+        .content-card { background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); padding: 40px 35px; }
+        h1 { margin: 0 0 8px; font-size: 1.9rem; font-weight: 700; }
+        .subtitle { margin: 0 0 25px; color: #666; font-size: 1.05rem; }
+        p { margin: 0 0 18px; font-size: 1.05rem; color: #333; }
+        .highlight { color: var(--accent); font-weight: 600; }
+        ul { margin: 0 0 20px; padding-left: 20px; }
+        ul li { margin-bottom: 8px; font-size: 1.05rem; }
+        .cta-box { margin-top: 30px; padding: 20px; background: #f1f5f9; border-radius: 10px; border-left: 4px solid var(--accent); }
+        .cta-box p { margin: 0 0 12px; }
+        .cta-box a { display: inline-block; background: var(--navy); color: white; text-decoration: none; font-weight: 700; padding: 12px 22px; border-radius: 6px; }
+        .cta-box a:hover { background: #152033; }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <a href="home.html" class="home-btn">← Home</a>
+    </div>
+    <div class="page-wrapper">
+        <div class="content-card">
+            <h1>Damage Repairs</h1>
+            <p class="subtitle">We fix the plumbing — and help clean up the mess it left behind</p>
+
+            <p>
+                A leaking pipe or burst line can cause more than just a plumbing problem. <span class="highlight">Federal Hot Water Solutions</span> not only repairs the source of the issue, but can also help restore some of the damage it caused.
+            </p>
+
+            <p>In addition to fixing the plumbing, we can assist with:</p>
+            <ul>
+                <li>Water-damaged flooring repairs</li>
+                <li>Drywall repair and patching</li>
+                <li>Vanity replacement</li>
+                <li>Cleanup related to plumbing failures</li>
+                <li>Making the affected area usable again</li>
+            </ul>
+
+            <p>
+                Instead of hiring multiple contractors, you can have the plumbing fixed and the related damage addressed by one local team. We focus on practical, quality repairs that get your home back in shape.
+            </p>
+
+            <div class="cta-box">
+                <p><strong>Need damage repairs after a plumbing issue?</strong></p>
+                <a href="tel:+14845466567">Call Now: (484) 546-6567</a>
+            </div>
+        </div>
+    </div>
+    <script>
+    window.addEventListener("scroll", function () {
+        const scrollTop = window.pageYOffset;
+        const maxScroll = 400; 
+        const startSize = 110;
+        const endSize = 100;
+
+        let progress = Math.min(scrollTop / maxScroll, 1);
+        let newSize = startSize - (startSize - endSize) * progress;
+
+        document.body.style.backgroundSize = newSize + "%";
+    });
+</script>
+</body>
+</html>

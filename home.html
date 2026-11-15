@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Federal Hot Water Solutions | Plumbing & Water Heater Repair – Lehigh Valley</title>
+    
+    <meta name="description" content="Licensed plumbing and water heater repair in the Lehigh Valley. Same-day service for Danielsville, Bethlehem, Nazareth and surrounding areas. Fair local prices.">
+    
+    <meta name="keywords" content="plumbing, water heater repair, hot water heater, clogged drain, leak repair, Lehigh Valley plumber, Bethlehem plumber, Nazareth plumber, Danielsville plumber">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Grand+Hotel&family=Leckerli+One&family=Oleo+Script:wght@700&family=Playball&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Lobster&family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Damion&family=Kaushan+Script&family=Yellowtail&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Allura&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Allura&family=Luxurious+Script&family=Sacramento&family=Style+Script&display=swap" rel="stylesheet">
+
+    <link rel="canonical" href="https://federalhotwatersolutions.com/" />
+    
+    <style>
+        :root {
+            --navy: #1D2B44;
+            --accent: #0077B6;
+            --emergency: #D90429;
+            --light: #F8F9FA;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            color: var(--navy);
+            background: var(--white);
+        }
+
+        #fed-wrapper {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            padding: 0 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .fed-header {
+            background: white;
+            padding: 14px 0;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-weight: 900;
+            font-size: 0.95rem;
+            line-height: 1.25;
+        }
+
+        .logo span {
+            display: block;
+            font-weight: 400;
+            color: #666;
+            font-size: 0.8rem;
+        }
+        
+        .hero {
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #fff 100%, #f1f3f5 0%);
+        }
+
+        .hero-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-menu {
+            display: flex;
+            justify-content: center;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .main-nav > ul > li {
+            position: relative;
+        }
+
+        .main-nav a,
+        .main-nav .dropdown-toggle {
+            display: block;
+            padding: 10px 18px;
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 6px;
+            transition: background 0.2s;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        .main-nav a:hover,
+        .main-nav .dropdown-toggle:hover {
+            background: #f1f3f5;
+        }
+
+        .main-nav .dropdown-toggle {
+            cursor: default;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none !important;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background: white;
+            min-width: 200px;
+            border-radius: 8px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            border: 1px solid #eee;
+            padding: 6px 0;
+            z-index: 1001;
+            margin-left: 0;
+            padding-left: 8px;
+        }
+
+        .dropdown:hover > .dropdown-menu {
+            display: block !important;
+        }
+
+        .dropdown-menu li a {
+            padding: 9px 16px;
+            font-size: 0.92rem;
+            font-weight: 500;
+            display: block;
+            color: var(--navy);
+            text-decoration: none;
+        }
+
+        .dropdown-menu li a:hover {
+            background: #f1f3f5;
+        }
+
+        .hero-content {
+            text-align: center;
+        }
+
+        .hero-content img {
+            max-width: 40%;
+            height: auto;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            line-height: 1.15;
+            margin: 16px 0 12px;
+            font-weight: 900;
+        }
+
+        .hero-content h1 span {
+            color: var(--accent);
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: #555;
+            margin: 0;
+            max-width: 420px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .trust-bar {
+            background: var(--navy);
+            color: white;
+            padding: 15px 0;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .trust-bar .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .trust-bar span {
+            white-space: nowrap;
+            font-family: 'Oleo Script', cursive;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+        }
+
+        .services {
+            padding: 80px 0;
+        }
+
+        .zz-item {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+
+        .zz-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .zz-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .zz-text {
+            flex: 1;
+        }
+
+        .zz-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: var(--navy);
+        }
+
+        .zz-text p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .zz-img {
+            flex: 1;
+            height: 350px;
+            background: #eee;
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .zz-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .floating-call {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10000;
+            background: var(--emergency);
+            color: white !important;
+            padding: 15px 20px;
+            border-radius: 50px;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 20000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-content h2 {
+            color: var(--navy);
+            margin-bottom: 20px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .contact-option {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            font-weight: 700;
+            color: var(--navy);
+            text-decoration: none;
+            border: 1px solid #ddd;
+            transition: 0.2s;
+        }
+
+        .contact-option:hover {
+            background: #eee;
+        }
+
+        .option-call { border-left: 5px solid #00D632; }
+        .option-text { border-left: 5px solid var(--accent); }
+        .option-email { border-left: 5px solid var(--navy); }
+
+        @media (max-width: 800px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-menu {
+                order: 2;
+            }
+
+            .hero-content {
+                order: 1;
+            }
+
+            .main-nav ul {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 6px;
+            }
+
+            .dropdown-menu {
+                left: 0 !important;
+                top: 100% !important;
+                margin-left: 0;
+                padding-left: 0;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .zz-item {
+                flex-direction: column !important;
+                gap: 30px;
+            }
+
+            .zz-img {
+                height: 260px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="fed-wrapper">
+
+        <div class="fed-header">
+            <div class="container">
+                <div class="logo">
+                    FEDERAL
+                    <span>HOT WATER SOLUTIONS</span>
+                </div>
+            </div>
+        </div>
+
+        <section class="hero">
+            <div class="hero-grid">
+
+                <div class="hero-menu">
+                    <nav class="main-nav">
+                        <ul>
+                            <li><a href="home.html">Home</a></li>
+                            <li class="dropdown">
+                                <span class="dropdown-toggle">Service Areas ▾</span>
+                                <ul class="dropdown-menu">
+                                    <li><a href="search.html">Search by city</a></li>
+                                    <li><a href="maphub2.html">Map</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <span class="dropdown-toggle">Services ▾</span>
+                                <ul class="dropdown-menu">
+                                    <li><a href="waterheaters.html">Water Heaters</a></li>
+                                    <li><a href="repairs.html">Plumbing Repairs</a></li>
+                                    <li><a href="installations.html">New Installations</a></li>
+                                    <li><a href="damage.html">Damage Repairs</a></li>
+                                    <li><a href="snake.html">Drain Cleaning</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="contactus.html">Contact Us</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="hero-content">
+                    <img src="https://img1.wsimg.com/isteam/ip/2140ebf9-db09-48b4-84f5-961621909312/blob-34df4fa.png" height="150" alt="Federal Hot Water Solutions Logo">
+                    <h1>Expert Plumbing.<br><span>Fair Local Prices.</span></h1>
+                    <p>Your neighbors in Danielsville, Bethlehem, and Nazareth trust Federal Hot Water Solutions for same-day service and professional repairs.</p>
+                </div>
+
+            </div>
+        </section>
+        <div class="trust-bar">
+            <div class="container">
+                <span>✓ LICENSED & INSURED</span>
+                <span>✓ SAME DAY REPAIRS</span>
+                <span>✓ DIGITAL PAYMENTS</span>
+                <span>✓ FAMILY OWNED</span>
+            </div>
+        </div>
+
+        <a href="tel:14845466567" class="floating-call">📞 CALL NOW!</a>
+
+        <div id="contactModal" class="modal-overlay">
+            <div class="modal-content">
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+                <h2>How can we help?</h2>
+                
+                <a href="tel:14845466567" class="contact-option option-call">📞 CALL NOW</a>
+                <a href="sms:14845466567" class="contact-option option-text">💬 TEXT NOW</a>
+                <a href="mailto:jake@federalhotwatersolutions.com" class="contact-option option-email">✉️ EMAIL US</a>
+                
+                <p style="font-size: 12px; color: #666; margin-top: 15px;">Federal Hot Water Solutions | Lehigh Valley</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('contactModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('contactModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            let modal = document.getElementById('contactModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && (href.startsWith('tel:') || href.startsWith('sms:') || href.startsWith('mailto:'))) {
+                    e.preventDefault();
+                    window.top.location.href = href;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

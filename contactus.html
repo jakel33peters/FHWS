@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Contact Us | Federal Hot Water Solutions</title>
+    
+    <meta name="description" content="Contact Federal Hot Water Solutions for plumbing and water heater service in the Lehigh Valley, Northampton County, Monroe County, Carbon County, and Bucks County.">
+    
+    <meta name="keywords" content="contact plumber, Federal Hot Water Solutions, plumber near me, emergency plumber, water heater repair, Lehigh Valley plumber">
+
+    <style>
+        :root {
+            --navy: #1D2B44;
+            --accent: #0077B6;
+            --light: #f8f9fa;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background-color: var(--light);
+    background-image: url("contactbg.jpeg");
+    background-size: 110%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--navy);
+    line-height: 1.6;
+    position: relative;
+    transition: background-size 0.1s linear;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.55);
+    z-index: -1;
+}
+
+        .top-bar {
+            max-width: 700px;
+            margin: 25px auto 0;
+            padding: 0 20px;
+        }
+
+        .home-btn {
+            display: inline-block;
+            background: var(--navy);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 10px 18px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .home-btn:hover {
+            background: #152033;
+        }
+
+        .page-wrapper {
+            max-width: 700px;
+            margin: 20px auto 40px;
+            padding: 0 20px;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            padding: 40px 35px;
+        }
+
+        h1 {
+            margin: 0 0 8px;
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .subtitle {
+            margin: 0 0 30px;
+            color: #666;
+            font-size: 1.05rem;
+        }
+
+        .cta-box {
+            background: #f1f5f9;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+            padding: 22px 20px;
+            margin-bottom: 30px;
+        }
+
+        .cta-box p {
+            margin: 0 0 14px;
+            font-size: 1.05rem;
+        }
+
+        .cta-box a.button {
+            display: inline-block;
+            background: var(--navy);
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            padding: 13px 24px;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: background 0.2s;
+        }
+
+        .cta-box a.button:hover {
+            background: #152033;
+        }
+
+        .contact-info {
+            margin-top: 10px;
+        }
+
+        .contact-info p {
+            margin: 0 0 12px;
+            font-size: 1.1rem;
+        }
+
+        .contact-info a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .service-areas {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid #e5e9ef;
+        }
+
+        .service-areas h2 {
+            margin: 0 0 10px;
+            font-size: 1.15rem;
+        }
+
+        .service-areas p {
+            margin: 0;
+            color: #444;
+            font-size: 0.98rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <a href="home.html" class="home-btn">← Home</a>
+    </div>
+
+    <div class="page-wrapper">
+        <div class="content-card">
+            <h1>Contact Us</h1>
+            <p class="subtitle">Fast, reliable plumbing and water heater service across the Lehigh Valley and surrounding areas.</p>
+
+            <div class="cta-box">
+                <p><strong>Need service right away?</strong></p>
+                <a href="tel:+14845466567" class="button">Call Now: (484) 546-6567</a>
+            </div>
+
+            <div class="contact-info">
+                <p><strong>Email:</strong> <a href="mailto:jake@federalhotwatersolutions.com">jake@federalhotwatersolutions.com</a></p>
+            </div>
+
+            <div class="service-areas">
+                <h2>Response Times</h2>
+                <p>
+                    Emails typically get responded to by the next business day. Phone calls typically get returned 30-60 minutes. 
+                </p>
+            </div>
+        </div>
+    </div>
+<script>
+    window.addEventListener("scroll", function () {
+        const scrollTop = window.pageYOffset;
+        const maxScroll = 400; 
+        const startSize = 110;
+        const endSize = 100;
+
+        let progress = Math.min(scrollTop / maxScroll, 1);
+        let newSize = startSize - (startSize - endSize) * progress;
+
+        document.body.style.backgroundSize = newSize + "%";
+    });
+</script>
+</body>
+</html>

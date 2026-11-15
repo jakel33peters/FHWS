@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search by City | Federal Hot Water Solutions</title>
+    <meta name="description" content="Search for plumbing and water heater service in your city. Federal Hot Water Solutions serves the Lehigh Valley, Northampton, Carbon, Monroe, and Bucks counties.">
+
+    <style>
+        :root {
+            --navy: #1D2B44;
+            --accent: #0077B6;
+            --light: #f8f9fa;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background-color: var(--light);
+            background-image: url("servicearea.jpeg");
+            background-size: 110%; 
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: var(--navy);
+            line-height: 1.6;
+            position: relative;
+            transition: background-size 0.1s linear;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.55);
+            z-index: -1;
+        }
+
+        .top-bar {
+            max-width: 600px;
+            margin: 25px auto 0;
+            padding: 0 20px;
+        }
+
+        .home-btn {
+            display: inline-block;
+            background: var(--navy);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 10px 18px;
+            border-radius: 6px;
+        }
+
+        .home-btn:hover {
+            background: #152033;
+        }
+
+        .page-wrapper {
+            max-width: 600px;
+            margin: 20px auto 40px;
+            padding: 0 20px;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            padding: 40px 35px;
+        }
+
+        h1 {
+            margin: 0 0 8px;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            margin: 0 0 28px;
+            color: #666;
+            font-size: 1.05rem;
+        }
+
+        .search-wrapper {
+            position: relative;
+        }
+
+        #citySearch {
+            width: 100%;
+            padding: 14px 16px;
+            font-size: 1.1rem;
+            border: 2px solid #ccd3db;
+            border-radius: 8px;
+            font-family: inherit;
+        }
+
+        #citySearch:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .suggestions {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #ccd3db;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            max-height: 240px;
+            overflow-y: auto;
+            z-index: 10;
+            display: none;
+        }
+
+        .suggestions div {
+            padding: 12px 16px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .suggestions div:hover,
+        .suggestions div.active {
+            background: #f1f5f9;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 18px 20px;
+            border-radius: 10px;
+            display: none;
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        .result.found {
+            background: #e8f5e9;
+            border-left: 4px solid #2e7d32;
+            color: #1b5e20;
+        }
+
+        .result.not-found {
+            background: #fdecea;
+            border-left: 4px solid #c62828;
+            color: #b71c1c;
+        }
+
+        .result a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .result a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <a href="home.html" class="home-btn">← Home</a>
+    </div>
+
+    <div class="page-wrapper">
+        <div class="content-card">
+            <h1>Search by City</h1>
+            <p class="subtitle">Start typing your city to see your regional service page.</p>
+
+            <div class="search-wrapper">
+                <input type="text" id="citySearch" placeholder="Enter your city..." autocomplete="off">
+                <div class="suggestions" id="suggestions"></div>
+            </div>
+
+            <div class="result" id="result"></div>
+        </div>
+    </div>
+
+    <script>
+        // Mapping cities to their respective county pages and clean display names
+        const cityMap = {
+            // Northampton County
+            "Bangor": { file: "northamptoncounty.html", county: "Northampton County" },
+            "Bath": { file: "northamptoncounty.html", county: "Northampton County" },
+            "Bethlehem": { file: "northamptoncounty.html", county: "Northampton County" },
+            "Easton": { file: "northamptoncounty.html", county: "Northampton County" },
+            "Hellertown": { file: "northamptoncounty.html", county: "Northampton County" },
+            "Mount Bethel": { file: "northamptoncounty.html", county: "Northampton County" },
+            "Nazareth": { file: "northamptoncounty.html", county: "Northampton County" },
+            "Northampton": { file: "northamptoncounty.html", county: "Northampton County" },
+            "Pen Argyl": { file: "northamptoncounty.html", county: "Northampton County" },
+            "Roseto": { file: "northamptoncounty.html", county: "Northampton County" },
+            "Walnutport": { file: "northamptoncounty.html", county: "Northampton County" },
+            "Wind Gap": { file: "northamptoncounty.html", county: "Northampton County" },
+
+            // Lehigh County
+            "Alburtis": { file: "lehighcounty.html", county: "Lehigh County" },
+            "Allentown": { file: "lehighcounty.html", county: "Lehigh County" },
+            "Breinigsville": { file: "lehighcounty.html", county: "Lehigh County" },
+            "Catasauqua": { file: "lehighcounty.html", county: "Lehigh County" },
+            "Center Valley": { file: "lehighcounty.html", county: "Lehigh County" },
+            "Coopersburg": { file: "lehighcounty.html", county: "Lehigh County" },
+            "Coplay": { file: "lehighcounty.html", county: "Lehigh County" },
+            "Emmaus": { file: "lehighcounty.html", county: "Lehigh County" },
+            "Fountain Hill": { file: "lehighcounty.html", county: "Lehigh County" },
+            "Macungie": { file: "lehighcounty.html", county: "Lehigh County" },
+            "Schnecksville": { file: "lehighcounty.html", county: "Lehigh County" },
+            "Slatington": { file: "lehighcounty.html", county: "Lehigh County" },
+            "Whitehall": { file: "lehighcounty.html", county: "Lehigh County" },
+
+            // Carbon County
+            "Bowmanstown": { file: "carboncounty.html", county: "Carbon County" },
+            "Jim Thorpe": { file: "carboncounty.html", county: "Carbon County" },
+            "Lansford": { file: "carboncounty.html", county: "Carbon County" },
+            "Lehighton": { file: "carboncounty.html", county: "Carbon County" },
+            "Nesquehoning": { file: "carboncounty.html", county: "Carbon County" },
+            "Palmerton": { file: "carboncounty.html", county: "Carbon County" },
+            "Summit Hill": { file: "carboncounty.html", county: "Carbon County" },
+            "Weatherly": { file: "carboncounty.html", county: "Carbon County" },
+            "Weissport": { file: "carboncounty.html", county: "Carbon County" },
+
+            // Monroe County
+            "Brodheadsville": { file: "monroecounty.html", county: "Monroe County" },
+            "Delaware Water Gap": { file: "monroecounty.html", county: "Monroe County" },
+            "East Stroudsburg": { file: "monroecounty.html", county: "Monroe County" },
+            "Effort": { file: "monroecounty.html", county: "Monroe County" },
+            "Kresgeville": { file: "monroecounty.html", county: "Monroe County" },
+            "Kunkletown": { file: "monroecounty.html", county: "Monroe County" },
+            "Saylorsburg": { file: "monroecounty.html", county: "Monroe County" },
+            "Stroudsburg": { file: "monroecounty.html", county: "Monroe County" },
+
+            // Bucks County (Upper Bucks)
+            "Bedminster": { file: "buckscounty.html", county: "Bucks County" },
+            "Dublin": { file: "buckscounty.html", county: "Bucks County" },
+            "Perkasie": { file: "buckscounty.html", county: "Bucks County" },
+            "Quakertown": { file: "buckscounty.html", county: "Bucks County" },
+            "Richlandtown": { file: "buckscounty.html", county: "Bucks County" },
+            "Riegelsville": { file: "buckscounty.html", county: "Bucks County" },
+            "Sellersville": { file: "buckscounty.html", county: "Bucks County" },
+            "Silverdale": { file: "buckscounty.html", county: "Bucks County" },
+            "Trumbauersville": { file: "buckscounty.html", county: "Bucks County" },
+            "Upper Black Eddy": { file: "buckscounty.html", county: "Bucks County" }
+        };
+
+        const cityNames = Object.keys(cityMap).sort();
+
+        const input = document.getElementById("citySearch");
+        const suggestionsBox = document.getElementById("suggestions");
+        const resultBox = document.getElementById("result");
+
+        input.addEventListener("input", function () {
+            const value = this.value.trim().toLowerCase();
+            suggestionsBox.innerHTML = "";
+            resultBox.style.display = "none";
+
+            if (!value) {
+                suggestionsBox.style.display = "none";
+                return;
+            }
+
+            const matches = cityNames.filter(city =>
+                city.toLowerCase().startsWith(value)
+            );
+
+            if (matches.length === 0) {
+                suggestionsBox.style.display = "none";
+                return;
+            }
+
+            matches.forEach(city => {
+                const div = document.createElement("div");
+                div.textContent = city;
+                div.addEventListener("click", () => selectCity(city));
+                suggestionsBox.appendChild(div);
+            });
+
+            suggestionsBox.style.display = "block";
+        });
+
+        function selectCity(city) {
+            input.value = city;
+            suggestionsBox.style.display = "none";
+            showResult(city);
+        }
+
+        input.addEventListener("keydown", function (e) {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                const value = this.value.trim().toLowerCase();
+                suggestionsBox.style.display = "none";
+
+                const match = cityNames.find(city =>
+                    city.toLowerCase() === value
+                );
+
+                if (match) {
+                    showResult(match);
+                } else {
+                    showNotFound();
+                }
+            }
+        });
+
+        function showResult(city) {
+            const data = cityMap[city];
+            if (!data) {
+                showNotFound();
+                return;
+            }
+
+            resultBox.className = "result found";
+            resultBox.innerHTML = `✓ We service <strong>${city}</strong>. <a href="${data.file}" onclick="openServicePage('${data.file}'); return false;">View ${data.county} page →</a>`;
+            resultBox.style.display = "block";
+        }
+
+        function openServicePage(url) {
+            if (window.innerWidth <= 800) {
+                window.location.href = url;
+            } else {
+                window.open(
+                    url,
+                    "servicePage",
+                    "width=700,height=650,scrollbars=yes,resizable=yes"
+                );
+            }
+        }
+
+        function showNotFound() {
+            resultBox.className = "result not-found";
+            resultBox.innerHTML = "City not in service range";
+            resultBox.style.display = "block";
+        }
+
+        document.addEventListener("click", function (e) {
+            if (!e.target.closest(".search-wrapper")) {
+                suggestionsBox.style.display = "none";
+            }
+        });
+    </script>
+    <script>
+        window.addEventListener("scroll", function () {
+            const scrollTop = window.pageYOffset;
+            const maxScroll = 400; 
+            const startSize = 110;
+            const endSize = 100;
+
+            let progress = Math.min(scrollTop / maxScroll, 1);
+            let newSize = startSize - (startSize - endSize) * progress;
+
+            document.body.style.backgroundSize = newSize + "%";
+        });
+    </script>
+</body>
+</html>
+```[cite: 2]
